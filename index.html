@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <!-- Важно для смартфонов: страница подстраивается под ширину экрана -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RunSmart — подбор пульсометра</title>
+
+  <!-- Шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet — библиотека настоящей карты (данные OpenStreetMap) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+
+  <!-- Наши стили -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ 1. ГЛАВНЫЙ ЭКРАН ============ -->
+  <header class="hero" id="top">
+    <div class="topbar">
+      <div class="logo">
+        <svg width="26" height="30" viewBox="0 0 26 30" stroke="#fff" fill="none" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+          <circle cx="17" cy="5" r="2.5" fill="#fff"/><path d="M14 10l-6 4 1 6 7 2 2 6M14 10l6 5 5 1M9 20l-5 4"/>
+        </svg>
+        <div>RunSmart<small>бегай легко - укрепляй здоровье</small></div>
+      </div>
+
+      <div class="rep">Официальный представитель<b>Garmin, Polar, Suunto</b></div>
+
+      <div class="phone">
+        <a class="phone__num" href="tel:+74999228974">+7 (499) 922-89-74</a>
+        <a class="btn btn--small" href="#form">Заказать звонок</a>
+      </div>
+    </div>
+
+    <div class="hero__body">
+      <h1>Подбор пульсометра</h1>
+      <p class="hero__sub">с учётом вашего уровня подготовки</p>
+
+      <div class="perks">
+        <div>
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="18" r="12"/><path d="M16 18V10M13 3h6M16 6V3"/></svg>
+          Время подбора:<br><b>10 минут</b>
+        </div>
+        <div>
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 4l4 0 4 18h12M10 10h16l-2 8H13"/><circle cx="14" cy="27" r="2"/><circle cx="24" cy="27" r="2"/></svg>
+          Бесплатная<br>доставка
+        </div>
+        <div>
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 6h20v13H11l-5 4v-4H3zM26 11h3v12h-3v3l-5-3h-8v-3"/></svg>
+          Ответим<br>на все вопросы
+        </div>
+      </div>
+
+      <a class="btn btn--big" href="#form">Заказать консультацию</a>
+      <div class="hero__or">или <a href="#catalog" id="toCatalog">ПЕРЕЙТИ В КАТАЛОГ</a></div>
+    </div>
+  </header>
+
+  <!-- ============ 2. ПРЕИМУЩЕСТВА ============ -->
+  <section class="advantages">
+    <div class="wrap">
+      <h2 class="title title--sm">Наши преимущества</h2>
+      <div class="advantages__grid">
+        <div>
+          <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M12 6h20v10a10 10 0 01-20 0zM12 9H5c0 6 3 9 7 9M32 9h7c0 6-3 9-7 9M22 26v8M14 38h16M16 34h12"/></svg>
+          <h3>Делимся опытом</h3>
+          <p>Наши сотрудники всегда готовы поделиться своим опытом, так как сами бегают полумарафоны, переплыли Босфор, готовятся к соревнованиям по триатлону!</p>
+        </div>
+        <div>
+          <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 38C6 28 3 16 10 11c5-3 10 0 12 5 2-5 7-8 12-5 7 5 4 17-12 27zM8 22h8l3-7 4 12 3-5h8"/></svg>
+          <h3>Заботимся о здоровье</h3>
+          <p>Мы работаем для того, чтобы Ваши занятия спортом шли на пользу Вашему здоровью и были в радость Вам и Вашим близким!</p>
+        </div>
+        <div>
+          <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M4 28c6-2 8-8 12-12l8 6 10 2c6 1 8 8 2 9H8c-3 0-4-3-4-5zM16 16l3 6M22 20l3 5"/></svg>
+          <h3>Учим бегать</h3>
+          <p>Помогаем с обучением правильной технике бега! Дружим с крупнейшей школой бега в России - <a href="#" onclick="return false">I LOVE RUNNING</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. ФОРМА ЗАЯВКИ ============ -->
+  <section class="lead" id="form">
+    <div class="lead__inner">
+      <h2>Получите бесплатную консультацию<br>по подбору пульсометра</h2>
+      <p>Просто заполните форму заявки<br>и мы перезвоним вам в течении 10 минут</p>
+
+      <form id="leadForm" novalidate>
+        <input name="name"  type="text"  placeholder="Ваше имя"    autocomplete="name"  aria-label="Ваше имя">
+        <input name="phone" type="tel"   placeholder="Ваш телефон" autocomplete="tel"   aria-label="Ваш телефон" inputmode="tel">
+        <input name="email" type="email" placeholder="Ваш E-mail"  autocomplete="email" aria-label="Ваш E-mail" inputmode="email">
+        <button class="btn" type="submit">Заказать консультацию</button>
+        <div class="form-msg" id="formMsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 4. СЛАЙДЕР ============ -->
+  <section class="slider" aria-label="Фото пульсометра">
+    <button class="slider__arrow" id="sliderPrev" aria-label="Предыдущее фото">
+      <svg width="22" height="36" viewBox="0 0 22 36"><path d="M18 3L5 18l13 15"/></svg>
+    </button>
+    <div class="slider__stage" id="sliderStage"></div>
+    <button class="slider__arrow" id="sliderNext" aria-label="Следующее фото">
+      <svg width="22" height="36" viewBox="0 0 22 36"><path d="M4 3l13 15L4 33"/></svg>
+    </button>
+  </section>
+  <div class="slider__dots" id="sliderDots"></div>
+
+  <!-- ============ 5. КАТАЛОГ ============ -->
+  <section class="catalog" id="catalog">
+    <h2 class="title title--sm">Каталог пульсометров</h2>
+
+    <div class="tabs" id="tabs" role="tablist">
+      <button class="tab is-active" data-cat="fit" role="tab"><span>Для фитнеса</span></button>
+      <button class="tab" data-cat="run" role="tab"><span>Для бега</span></button>
+      <button class="tab" data-cat="tri" role="tab"><span>Для триатлона</span></button>
+    </div>
+
+    <div class="products" id="products"></div>
+  </section>
+
+  <!-- ============ 6. ОТЗЫВЫ ============ -->
+  <section class="reviews">
+    <h2 class="title title--sm">Отзывы клиентов</h2>
+
+    <article class="review reveal">
+      <div class="review__avatar" style="background:#d94f7a">ИИ</div>
+      <div>
+        <b>Ирина Иванченко</b><small>2 полумарафона</small>
+        <p>Не знала, что себе купить - обратилась к ребятам из RunSmart - подобрали пульсометр, который подошёл именно под мои цели и финансовые возможности. Через некоторое время решила обновить гаджет - не раздумывая обратилась туда же.</p>
+        <p>Новые цели - новый гаджет!</p>
+        <p>Спасибо, RunSmart!</p>
+      </div>
+    </article>
+
+    <article class="review reveal">
+      <div class="review__avatar" style="background:#5a9a3a">ИС</div>
+      <div>
+        <b>Иван Сёмочкин</b><small>1 полумарафон</small>
+        <p>Крутая штука-пульсометр. Обычно без них бегал. Оказывается только хуже себе делал.<br>Купил пульсометр, ещё в подарок получил тренировку. Со мной вместе провели первую тренировку, научили пользоваться новым гаджетом. Также объяснили основы анатомии, составили план тренировок на месяц вперёд.</p>
+        <p>С ними подготовился к своему первому полумарафону! Спасибо!!!</p>
+      </div>
+    </article>
+
+    <article class="review reveal">
+      <div class="review__avatar" style="background:#c9732b">ЮД</div>
+      <div>
+        <b>Юлия Дашкина</b><small>2 полумарафона</small>
+        <p>Долго не могла начать бегать, т.к. до этого несколько раз начинала, но становилось тяжело и я бросала. От друзей услышала о RunSmart и о беге с контролем пульса и решила попробовать.</p>
+        <p>Позвонила, ребята поинтересовались моими целями и подобрали очень интересный вариант со скидкой! Теперь бегаю и наслаждаюсь бегом! Пробежала уже 2 полумарафона и несколько более коротких забегов и не намерена останавливаться!</p>
+        <p>Спасибо!!!</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ 7. КАРТА И КОНТАКТЫ ============ -->
+  <section class="map-section">
+    <div class="contacts">
+      Москва, Мясницкий проезд, д.3с1
+      <b><a href="tel:+74999228974">8 (499) 922-89-74</a></b>
+      <div class="contacts__social">
+        <a href="#" onclick="return false" aria-label="Facebook">f</a>
+        <a href="#" onclick="return false" aria-label="Instagram">◎</a>
+        <a href="#" onclick="return false" aria-label="Pinterest">P</a>
+      </div>
+    </div>
+    <div id="map" aria-label="Карта"></div>
+  </section>
+
+  <!-- ============ 8. КНОПКА «НАВЕРХ» ============ -->
+  <button id="toTop" aria-label="Наверх">
+    <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 14l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Скрипты: сначала библиотека карты, потом наш код -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

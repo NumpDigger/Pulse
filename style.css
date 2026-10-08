@@ -1,0 +1,332 @@
+/* =========================================================
+   RunSmart — стили
+   Содержание:
+   0. Переменные и база      5. Слайдер
+   1. Общие элементы         6. Каталог
+   2. Главный экран          7. Отзывы
+   3. Преимущества           8. Карта
+   4. Форма заявки           9. Кнопка «Наверх»
+                            10. Адаптив (планшеты и смартфоны)
+   ========================================================= */
+
+
+/* ---------- 0. ПЕРЕМЕННЫЕ И БАЗА ---------- */
+:root {
+  --red: #c00000;
+  --red-hover: #e00000;
+  --gray: #f6f6f6;
+  --text: #111;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;           /* плавный скролл по якорям */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  overflow-x: hidden;                /* без горизонтальной прокрутки на телефоне */
+}
+
+img, svg { max-width: 100%; }
+a { color: inherit; }
+
+
+/* ---------- 1. ОБЩИЕ ЭЛЕМЕНТЫ ---------- */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0 0 40px;
+}
+.title--sm { font-size: 20px; }
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  padding: 12px 24px;
+  font: inherit;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:hover { background: var(--red-hover); }
+.btn--small { font-size: 9px; padding: 6px 12px; }
+.btn--big   { padding: 14px 28px; }
+
+/* видимый фокус для клавиатуры */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+
+/* ---------- 2. ГЛАВНЫЙ ЭКРАН ---------- */
+.hero {
+  position: relative;
+  min-height: 650px;
+  color: #fff;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(10, 20, 15, .58), rgba(10, 20, 15, .58)),
+    url("images/hero.png") center / cover no-repeat;
+}
+
+.topbar {
+  position: relative;
+  display: flex; flex-wrap: wrap;
+  justify-content: space-between; align-items: flex-start;
+  gap: 16px; padding: 16px 8%;
+}
+.logo { display: flex; align-items: center; gap: 8px; font-size: 20px; }
+.logo small { display: block; font-size: 9px; opacity: .9; }
+.rep { text-align: center; font-size: 10px; }
+.rep b { display: block; margin-top: 6px; font-size: 13px; font-weight: 600; }
+.phone { text-align: right; }
+.phone__num { display: block; font-weight: 700; font-size: 14px; text-decoration: none; margin-bottom: 4px; }
+
+.hero__body {
+  position: relative;
+  width: min(520px, 86%);
+  margin: 0 8% 0 auto;
+  padding: 50px 0 60px;
+  text-align: center;
+}
+.hero h1 { margin: 0; font-size: 28px; font-weight: 700; text-transform: uppercase; }
+.hero__sub { margin: 8px 0 40px; font-size: 16px; text-transform: uppercase; }
+
+.perks { display: flex; justify-content: space-around; margin-bottom: 50px; font-size: 11px; }
+.perks svg { display: block; margin: 0 auto 8px; stroke: #fff; fill: none; stroke-width: 1.3; }
+
+.hero__or { margin-top: 12px; font-size: 12px; }
+
+
+/* ---------- 3. ПРЕИМУЩЕСТВА ---------- */
+.advantages { background: var(--gray); padding: 60px 0 70px; border-top: 3px solid #f5c400; }
+.advantages .title { margin-bottom: 60px; }
+.advantages__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+.advantages svg { stroke: var(--red); fill: none; stroke-width: 1.6; margin-bottom: 28px; }
+.advantages h3 { margin: 0 0 16px; font-size: 14px; font-weight: 700; }
+.advantages p { margin: 0; font-size: 11px; line-height: 1.6; }
+.advantages a { color: var(--red); }
+
+
+/* ---------- 4. ФОРМА ЗАЯВКИ ---------- */
+.lead {
+  position: relative; overflow: hidden; color: #fff;
+  display: flex; align-items: center;
+  min-height: 680px;
+  padding: 70px 0;
+  background:
+    linear-gradient(90deg, rgba(20, 20, 20, .86), rgba(20, 20, 20, .42)),
+    url("images/consultation.png") center / cover no-repeat;
+  border-bottom: 3px solid #2196f3;
+}
+.lead__inner { position: relative; max-width: 960px; margin: 0 auto; padding: 0 20px 0 18%; }
+.lead h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.5; text-transform: uppercase; }
+.lead p { margin: 0 0 24px; line-height: 1.5; }
+
+.lead form { width: 260px; max-width: 100%; }
+.lead input {
+  display: block; width: 100%;
+  margin-bottom: 10px; padding: 11px 12px;
+  border: 2px solid transparent; border-radius: 3px;
+  font: inherit;
+  font-size: 16px;                   /* 16px — чтобы iPhone не приближал страницу при вводе */
+}
+.lead input.is-bad { border-color: #ff5252; }
+.lead .btn { width: 100%; font-size: 12px; }
+.form-msg { min-height: 18px; margin-top: 8px; font-size: 12px; }
+
+
+/* ---------- 5. СЛАЙДЕР ---------- */
+.slider { display: flex; align-items: center; justify-content: center; gap: 30px; padding: 60px 20px 70px; }
+.slider__stage {
+  display: flex; align-items: center; gap: 30px;
+  min-height: 340px; min-width: 0;
+  transition: opacity .25s;
+}
+.slider__stage.is-fading { opacity: 0; }
+.slider__arrow { background: none; border: 0; padding: 12px; cursor: pointer; flex: none; }
+.slider__arrow svg { display: block; stroke: var(--red); stroke-width: 5; fill: none; }
+
+.slider__dots { text-align: center; margin-top: -30px; padding-bottom: 30px; }
+.slider__dots i {
+  display: inline-block; width: 10px; height: 10px; margin: 0 5px;
+  border-radius: 50%; background: #ccc; cursor: pointer;
+}
+.slider__dots i.is-active { background: var(--red); }
+
+.watch-logo { text-align: center; font-size: 26px; font-weight: 700; font-style: italic; }
+.watch-logo span { font-size: 15px; color: #c4161c; }
+
+
+/* ---------- 6. КАТАЛОГ ---------- */
+.catalog { padding: 30px 0 70px; }
+
+.tabs { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; padding: 0 14px; }
+.tab {
+  margin: 0 -6px; padding: 12px 38px;
+  border: 1px solid #ccc; background: #fff; color: #555;
+  font: inherit; text-transform: uppercase; cursor: pointer;
+  transform: skewX(-18deg);          /* «косые» вкладки как на макете */
+}
+.tab span { display: block; transform: skewX(18deg); }
+.tab.is-active { background: var(--red); border-color: var(--red); color: #fff; }
+
+.products {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; max-width: 820px; margin: 0 auto; padding: 0 10px;
+}
+
+/* карточка с переворотом */
+.card { position: relative; height: 290px; border: 1px solid #ddd; }
+.card__face {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 12px 12px 14px;
+  background: #fff; text-align: center;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: transform .45s;
+}
+.card__face--back { align-items: stretch; text-align: left; transform: rotateY(180deg); }
+.card.is-flipped .card__face--front { transform: rotateY(-180deg); }
+.card.is-flipped .card__face--back  { transform: rotateY(0); }
+
+.card__img { height: 105px; margin: 6px 0 12px; }
+.card h4 { margin: 0 0 8px; font-size: 12px; font-weight: 700; }
+.card p  { margin: 0 0 6px; padding: 0 6px; font-size: 11px; line-height: 1.6; }
+
+.card__link {
+  background: none; border: 0; padding: 4px;
+  color: var(--red); font: inherit; font-size: 10px;
+  text-decoration: underline; cursor: pointer;
+}
+.card__face--back .card__link { margin: auto auto 6px; }
+
+.card ul { margin: 0 0 6px; padding: 0; list-style: none; overflow: auto; font-size: 11px; line-height: 1.5; color: #444; }
+.card li { position: relative; margin-bottom: 6px; padding-left: 12px; }
+.card li::before { content: ""; position: absolute; left: 0; top: 6px; width: 4px; height: 4px; background: var(--red); }
+
+.card__buy {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  width: 100%; margin-top: auto; padding-top: 10px;
+  border-top: 1px solid #e5e5e5; text-align: left;
+}
+.card__buy s { display: block; font-size: 10px; color: #777; }
+.card__buy b { font-size: 14px; }
+.card__buy .btn { font-size: 10px; padding: 9px 22px; }
+
+
+/* ---------- 7. ОТЗЫВЫ ---------- */
+.reviews { padding: 50px 0 60px; }
+.review { display: flex; gap: 38px; max-width: 580px; margin: 0 auto 46px; }
+.review__avatar {
+  flex: none; display: grid; place-items: center;
+  width: 106px; height: 106px; border-radius: 50%;
+  color: #fff; font-size: 34px; font-weight: 700;
+}
+.review b { font-size: 13px; }
+.review small { display: block; margin: 2px 0 8px; font-size: 10px; color: #666; }
+.review p { margin: 0 0 10px; font-size: 12px; line-height: 1.55; }
+
+/* плавное появление при скролле */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s, transform .8s; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+
+/* ---------- 8. КАРТА ---------- */
+.map-section { position: relative; }
+#map { height: 420px; background: #e8e3da; z-index: 0; }
+
+.contacts {
+  position: absolute; top: 0; left: 50%; z-index: 500;
+  transform: translateX(-50%);
+  width: 288px; padding: 28px 30px 26px;
+  background: var(--red); color: #fff; text-align: center; font-size: 12px;
+}
+.contacts b { display: block; margin: 20px 0; font-size: 13px; }
+.contacts b a { text-decoration: none; }
+.contacts__social { display: flex; justify-content: center; gap: 18px; }
+.contacts__social a {
+  display: grid; place-items: center; width: 30px; height: 30px;
+  border: 1px solid #fff; border-radius: 50%;
+  font-size: 12px; font-weight: 700; text-decoration: none;
+}
+
+/* булавка на карте */
+.pin { background: none; border: 0; }
+.pin-label { white-space: nowrap; color: #b71c1c; font-weight: 700; font-size: 13px; line-height: 1.2; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
+
+
+/* ---------- 9. КНОПКА «НАВЕРХ» ---------- */
+#toTop {
+  position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 1000;
+  width: 48px; height: 48px;
+  border: 0; border-radius: 50%; background: var(--red); cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  opacity: 0; pointer-events: none; transform: translateY(10px);
+  transition: opacity .3s, transform .3s;
+}
+#toTop.is-visible { opacity: 1; pointer-events: auto; transform: none; }
+#toTop svg { display: block; margin: auto; stroke: #fff; fill: none; stroke-width: 3; }
+
+
+/* ---------- 10. АДАПТИВ ---------- */
+
+/* Планшеты */
+@media (max-width: 860px) {
+  .products { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Смартфоны */
+@media (max-width: 640px) {
+  .title { font-size: 20px; }
+
+  /* шапка столбиком по центру */
+  .topbar { flex-direction: column; align-items: center; padding: 14px 16px; text-align: center; }
+  .phone { text-align: center; }
+  .hero__body { width: 100%; margin: 0; padding: 30px 20px 50px; }
+  .hero h1 { font-size: 24px; }
+  .hero__sub { font-size: 14px; margin-bottom: 28px; }
+  .perks { margin-bottom: 32px; gap: 8px; }
+
+  .advantages__grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .lead { padding: 50px 0; }
+  .lead__inner { padding: 0 20px; }
+  .lead h2 { font-size: 18px; }
+  .lead form { width: 100%; }
+
+  .slider { gap: 0; padding: 40px 4px 50px; }
+  .slider__stage { flex-direction: column; gap: 10px; min-height: 300px; }
+  .slider__stage svg { max-height: 250px; }
+
+  .products { grid-template-columns: 1fr; max-width: 380px; }
+  .tab { padding: 10px 16px; font-size: 12px; margin: 0 -4px 6px; }
+
+  .review { gap: 16px; padding: 0 16px; }
+  .review__avatar { width: 64px; height: 64px; font-size: 20px; }
+
+  /* контакты над картой, а не поверх неё — чтобы не мешали двигать карту пальцем */
+  .contacts { position: static; transform: none; width: 100%; padding: 22px 16px; }
+  #map { height: 360px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
